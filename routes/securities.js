@@ -42,13 +42,11 @@ router.get('/:id/price', async (req, res) => {
        const result = await client.query('SELECT symbol FROM asset WHERE id=$1::integer;', [req.params.id]);
        const symbol = (result) ? result.rows[0].symbol : null;
        const request = require('request');
-       console.log(result.rows[0].symbol,symbol);
-       request('https://api.worldtradingdata.com/api/v1/stock?symbol='+symbol+'&api_token=uyMOhtXtguoVMs6ItHt0hViPlObXZngmYGniZYo9gQ4ditDKc1al2H6zak3w', (err, res, body) => {
+       request('https://api.worldtradingdata.com/api/v1/stock?symbol='+symbol+'&api_token=uyMOhtXtguoVMs6ItHt0hViPlObXZngmYGniZYo9gQ4ditDKc1al2H6zak3w', (err, response, body) => {
            if(err) {
                console.log('Error:',err);
            } else {
-               console.log(typeof body);
-               res.json(body);
+               res.send(JSON.parse(body).data);
            }
        });
    } catch(err) {
