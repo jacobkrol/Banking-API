@@ -46,7 +46,7 @@ router.get('/:id', async(req, res) => {
     try {
         const client = await pool.connect();
         const result = await client.query('SELECT * FROM customer WHERE id=$1::integer;',[req.params.id]);
-        res.send({'results':(result) ? result.rows : null});
+        res.send((result) ? result.rows : null);
     } catch(err) {
         console.log(err);
         res.send('Error ' + err);

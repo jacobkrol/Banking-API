@@ -16,6 +16,7 @@ const customers = require('./routes/customers');
 const accounts = require('./routes/accounts');
 const positions = require('./routes/positions');
 const transactions = require('./routes/transactions');
+const securities = require('./routes/securities');
 
 //define route paths
 app.use('/', index);
@@ -24,6 +25,7 @@ app.use('/customers', customers);
 app.use('/accounts', accounts);
 app.use('/positions', positions);
 app.use('/transactions', transactions);
+app.use('/securities', securities);
 
 //log active port
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
