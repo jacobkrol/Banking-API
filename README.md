@@ -30,7 +30,7 @@ This is a RESTful API built using [Express 4](http://expressjs.com/) on Node.js 
 
 `/securities/<id>` returns the security with the ID \<id\>
 
-`/securities/<id>/price` returns current information on security with the ID from third party request
+`/securities/<id>/price` returns current information on security with the ID from [third party request](https://worldtradingdata.com)
 
 `/employees` returns all employees
 
